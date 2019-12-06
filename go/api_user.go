@@ -12,29 +12,12 @@ package swagger
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 	"net/http"
 
 	"github.com/BlogByFourMan/Server/dal/db"
 	"github.com/BlogByFourMan/Server/dal/model"
 )
 
-type MyResponse struct {
-	OkMessage    string `json:"ok,omitempty"`
-	ErrorMessage string `json:"error,,omitempty"`
-}
-
-func Response(response MyResponse, w http.ResponseWriter, code int) {
-	jsonData, jErr := json.Marshal(&response)
-
-	if jErr != nil {
-		log.Fatal(jErr.Error())
-	}
-
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.Write(jsonData)
-	w.WriteHeader(code)
-}
 
 func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 	db.Init()
@@ -45,7 +28,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		Response(MyResponse{
-			"",
+			nil,
 			err.Error(),
 		}, w, http.StatusBadRequest)
 	}
@@ -54,7 +37,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 
 	if len(articles) == 0 {
 		Response(MyResponse{
-			"",
+			nil,
 			"articles not found",
 		}, w, http.StatusBadRequest)
 	}
@@ -67,15 +50,15 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		Response(MyResponse{
-			"",
+			nil,
 			err.Error(),
 		}, w, http.StatusBadRequest)
 	}
 
 	Response(MyResponse{
 		"comment add success",
-		"",
-	}, w, http.StatusAccepted)
+		nil,
+	}, w, http.StatusOK)
 }
 
 func UserLoginPost(w http.ResponseWriter, r *http.Request) {
@@ -88,7 +71,7 @@ func UserLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		Response(MyResponse{
-			"",
+			nil,
 			"parameter error",
 		}, w, http.StatusBadRequest)
 	}
@@ -97,7 +80,7 @@ func UserLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	if check.Username != user.Username || check.Password != user.Password {
 		Response(MyResponse{
-			"",
+			nil,
 			"username or password error",
 		}, w, http.StatusBadRequest)
 		return
@@ -105,8 +88,8 @@ func UserLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	Response(MyResponse{
 		"log in success",
-		"",
-	}, w, http.StatusAccepted)
+		nil,
+	}, w, http.StatusOK)
 }
 
 func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
@@ -121,7 +104,7 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(value)
 	if err != nil {
 		Response(MyResponse{
-			"",
+			nil,
 			"parameter error",
 		}, w, http.StatusBadRequest)
 	}
@@ -130,7 +113,7 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 
 	if check.Username != "" {
 		Response(MyResponse{
-			"",
+			nil,
 			"username existed",
 		}, w, http.StatusBadRequest)
 		return
@@ -140,7 +123,7 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 
 	if err != nil {
 		Response(MyResponse{
-			"",
+			nil,
 			err.Error(),
 		}, w, http.StatusBadRequest)
 	}
@@ -148,6 +131,6 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 	Response(MyResponse{
 		"register success",
 		"",
-	}, w, http.StatusAccepted)
+	}, w, http.StatusOK)
 
 }

@@ -9,9 +9,15 @@ import (
 
 	"github.com/BlogByFourMan/Server/dal/model"
 	"github.com/boltdb/bolt"
+	"runtime"
 )
 
 func GetDBPATH() string {
+	ostype:=runtime.GOOS
+	if ostype == "windows"{
+		pt, _ := os.Getwd()
+		return pt+"\\dal\\db\\Blog.db"
+	}
 	return path.Join(os.Getenv("GOPATH"), "src", "github.com", "BlogByFourMan", "Server", "dal", "db", "Blog.db")
 }
 func Init() {
