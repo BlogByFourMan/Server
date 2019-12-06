@@ -13,8 +13,7 @@ import (
 )
 
 func GetDBPATH() string {
-	///Users/hixinj/go/src/github.com/BlogByFourMan/Server/dal/db/Blog.db
-	return path.Join(os.Getenv("GOPATH"), "src", "")
+	return path.Join(os.Getenv("GOPATH"), "src", "github.com", "BlogByFourMan", "Server", "dal", "db", "Blog.db")
 }
 func Init() {
 	db, err := bolt.Open(GetDBPATH(), 0600, nil)
