@@ -11,7 +11,6 @@ package swagger
 
 import (
 	"encoding/json"
-	"fmt"
 	"net/http"
 
 	"github.com/BlogByFourMan/Server/dal/db"
@@ -30,6 +29,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 			nil,
 			err.Error(),
 		}, w, http.StatusBadRequest)
+		return
 	}
 
 	articles := db.GetArticles(comment.ArticleId, 0)
@@ -39,10 +39,11 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 			nil,
 			"articles not found",
 		}, w, http.StatusBadRequest)
+		return
 	}
 
-	for _, article := range articles {
-		article.Comments = append(article.Comments, comment)
+	for i :=0 ;i<len(articles);i++ {
+		articles[i].Comments = append(articles[i].Comments, comment)
 	}
 
 	err = db.PutArticles(articles)
@@ -52,6 +53,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 			nil,
 			err.Error(),
 		}, w, http.StatusBadRequest)
+		return
 	}
 
 	Response(MyResponse{
@@ -73,6 +75,7 @@ func UserLoginPost(w http.ResponseWriter, r *http.Request) {
 			nil,
 			"parameter error",
 		}, w, http.StatusBadRequest)
+		return
 	}
 
 	check := db.GetUser(user.Username)
@@ -98,14 +101,12 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 	var user model.User
 
 	err := json.NewDecoder(r.Body).Decode(&user)
-	r.ParseForm()
-	value := r.Form
-	fmt.Println(value)
 	if err != nil {
 		Response(MyResponse{
 			nil,
 			"parameter error",
 		}, w, http.StatusBadRequest)
+		return
 	}
 
 	check := db.GetUser(user.Username)
@@ -125,11 +126,12 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 			nil,
 			err.Error(),
 		}, w, http.StatusBadRequest)
+		return
 	}
 
 	Response(MyResponse{
 		"register success",
-		"",
+		nil,
 	}, w, http.StatusOK)
 
 }
