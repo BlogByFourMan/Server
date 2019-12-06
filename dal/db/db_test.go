@@ -3,8 +3,8 @@ package db_test
 import (
 	"testing"
 
-	"../db"
-	"../model"
+	"github.com/BlogByFourMan/Server/dal/db"
+	"github.com/BlogByFourMan/Server/dal/model"
 	"github.com/boltdb/bolt"
 )
 
@@ -42,21 +42,21 @@ func TestPutUsers(t *testing.T) {
 
 	u2 := db.GetUser("testUser1")
 
-	if u2.Password!=u0.Password{
+	if u2.Password != u0.Password {
 		t.Error("data error")
 	}
 
 	u3 := db.GetUser("testUser2")
 
-	if u3.Password!=u1.Password{
+	if u3.Password != u1.Password {
 		t.Error("data error")
 	}
 }
 
 func TestPutGetArticles(t *testing.T) {
 	db.Init()
-	a0 := model.Article{0, "title0", "",nil, "2019-16-6", "content0", nil}
-	a1 := model.Article{1, "title0", "", nil,"2020-01-03", "content1", nil}
+	a0 := model.Article{0, "title0", "", nil, "2019-16-6", "content0", nil}
+	a1 := model.Article{1, "title0", "", nil, "2020-01-03", "content1", nil}
 	articles := []model.Article{a0, a1}
 	err := db.PutArticles(articles)
 	if err != nil {

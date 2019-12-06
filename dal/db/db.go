@@ -7,18 +7,12 @@ import (
 	"os"
 	"path"
 
-	"../model"
-
+	"github.com/BlogByFourMan/Server/dal/model"
 	"github.com/boltdb/bolt"
 )
 
 func GetDBPATH() string {
-<<<<<<< HEAD
 	return path.Join(os.Getenv("GOPATH"), "src", "github.com", "BlogByFourMan", "Server", "dal", "db", "Blog.db")
-=======
-	///Users/hixinj/go/src/github.com/BlogByFourMan/Server/dal/db/Blog.db
-	return path.Join(os.Getenv("./"), "Blog.db")
->>>>>>> 55af56ab6042b23ed3e5bb84458581fac05358d6
 }
 func Init() {
 	db, err := bolt.Open(GetDBPATH(), 0600, nil)
@@ -153,8 +147,7 @@ func GetArticles(id int64) []model.Article {
 	return articles
 }
 
-
-func GetUser(username string) model.User{
+func GetUser(username string) model.User {
 	db, err := bolt.Open(GetDBPATH(), 0600, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -162,8 +155,8 @@ func GetUser(username string) model.User{
 	defer db.Close()
 
 	user := model.User{
-		Username:"",
-		Password:"",
+		Username: "",
+		Password: "",
 	}
 
 	err = db.View(func(tx *bolt.Tx) error {
