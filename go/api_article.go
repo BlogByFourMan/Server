@@ -61,14 +61,9 @@ func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
 func ArticlesGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-<<<<<<< HEAD
 
 	articles := db.GetArticles(-1)
 
 	buf, _ := json.Marshal(articles)
 	w.Write(buf)
 }
-=======
-	w.Write([]byte("articles"))
-}
->>>>>>> 55af56ab6042b23ed3e5bb84458581fac05358d6
