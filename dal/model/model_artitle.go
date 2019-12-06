@@ -9,16 +9,18 @@
 
 package model
 
-type Artitle struct {
+type Article struct {
 	Id int64 `json:"id,omitempty"`
 
 	Title string `json:"title,omitempty"`
+
+	Username string `json:"username,omitempty"`
 
 	Tags []Tag `json:"tags,omitempty"`
 
 	Date string `json:"date,omitempty"`
 
-	Cotent string `json:"cotent,omitempty"`
+	Content string `json:"content,omitempty"`
 
 	Comments []Comment `json:"comments,omitempty"`
 }

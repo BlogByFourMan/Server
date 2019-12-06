@@ -11,19 +11,128 @@ package swagger
 
 import (
 	"net/http"
+	"log"
+	"../dal/model"
+	"../dal/db"
+	"encoding/json"
 )
 
+type myResponse struct {
+	okMessage string
+	errorMessage string
+}
+
+func Response(response myResponse, w http.ResponseWriter, code int){
+	jsonData, jErr := json.Marshal(response)
+
+	if jErr != nil{
+		log.Fatal(jErr.Error())
+	}
+
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.Write(jsonData)
+	w.WriteHeader(code)
+}
+
 func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
+	db.Init()
+
+	var comment model.Comment
+
+	err := json.NewDecoder(r.Body).Decode(&comment)
+
+	if err != nil{
+		Response(myResponse{
+			"",
+			err.Error(),
+		},w,http.StatusBadRequest)
+	}
+
+	articles := db.GetArticles(comment.ArticleId)
+
+	if len(articles) == 0{
+		Response(myResponse{
+			"",
+			"articles not found",
+		}, w, http.StatusBadRequest)
+	}
+
+	for article, _ := range articles{
+		
+	}
+
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
 }
 
 func UserLoginPost(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+
+	db.Init()
+
+	var user model.User
+
+	err := json.NewDecoder(r.Body).Decode(&user)
+
+	if err != nil{
+		Response(myResponse{
+			"",
+			"parameter error",
+		}, w, http.StatusBadRequest)
+	}
+
+	check := db.GetUser(user.Username)
+
+	if check.Username != user.Username || check.Password != user.Password{
+		Response(myResponse{
+			"",
+			"username or password error",
+		}, w, http.StatusBadRequest)
+		return
+	}
+
+	Response(myResponse{
+		"log in success",
+		"",
+	}, w, http.StatusAccepted)
 }
 
 func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+
+	db.Init()
+
+	var user model.User
+
+	err := json.NewDecoder(r.Body).Decode(&user)
+
+	if err != nil{
+		Response(myResponse{
+			"",
+			"parameter error",
+		}, w, http.StatusBadRequest)
+	}
+
+	check := db.GetUser(user.Username)
+
+	if check.Username != ""{
+		Response(myResponse{
+			"",
+			"username existed",
+		}, w, http.StatusBadRequest)
+		return
+	}
+
+	err = db.PutUsers([]model.User{user})
+
+	if err != nil{
+		Response(myResponse{
+			"",
+			err.Error(),
+		}, w, http.StatusBadRequest)
+	}
+
+	Response(myResponse{
+		"register success",
+		"",
+	}, w, http.StatusAccepted)
+
 }

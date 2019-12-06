@@ -12,9 +12,9 @@ package model
 type Comment struct {
 	User string `json:"user,omitempty"`
 
-	ArtitleId int64 `json:"artitle_id,omitempty"`
+	ArticleId int64 `json:"article_id,omitempty"`
 
 	Date string `json:"date,omitempty"`
 
-	Cotent string `json:"cotent,omitempty"`
+	Content string `json:"content,omitempty"`
 }

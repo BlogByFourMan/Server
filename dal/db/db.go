@@ -7,14 +7,14 @@ import (
 	"os"
 	"path"
 
-	"github.com/BlogByFourMan/Server/dal/model"
+	"../model"
 
 	"github.com/boltdb/bolt"
 )
 
 func GetDBPATH() string {
 	///Users/hixinj/go/src/github.com/BlogByFourMan/Server/dal/db/Blog.db
-	return path.Join(os.Getenv("GOPATH"), "src", "")
+	return path.Join(os.Getenv("./"), "Blog.db")
 }
 func Init() {
 	db, err := bolt.Open(GetDBPATH(), 0600, nil)
@@ -49,7 +49,7 @@ func Init() {
 
 // PutArticles : put articles to article of blog.db
 //
-func PutArticles(articles []model.Artitle) error {
+func PutArticles(articles []model.Article) error {
 	db, err := bolt.Open(GetDBPATH(), 0600, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -76,11 +76,36 @@ func PutArticles(articles []model.Artitle) error {
 	return nil
 }
 
+func PutUsers(users []model.User) error {
+	db, err := bolt.Open(GetDBPATH(), 0600, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	err = db.Update(func(tx *bolt.Tx) error {
+		b := tx.Bucket([]byte("user"))
+		if b != nil {
+			for i := 0; i < len(users); i++ {
+				username := users[i].Username
+				data, _ := json.Marshal(users[i])
+				b.Put([]byte(username), data)
+			}
+		}
+		return nil
+	})
+
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 // GetArticles 根据article_id 获取article
 // 如果id == -1 表示获取所有articles
 // return []Article. if not found, len(articles)==0
-func GetArticles(id int64) []model.Artitle {
-	articles := make([]model.Artitle, 0)
+func GetArticles(id int64) []model.Article {
+	articles := make([]model.Article, 0)
 	db, err := bolt.Open(GetDBPATH(), 0600, nil)
 	if err != nil {
 		log.Fatal(err)
@@ -96,7 +121,7 @@ func GetArticles(id int64) []model.Artitle {
 			data := b.Get(key)
 			if data != nil {
 
-				atc := model.Artitle{}
+				atc := model.Article{}
 				err := json.Unmarshal(data, &atc)
 				if err != nil {
 					log.Fatal(err)
@@ -107,7 +132,7 @@ func GetArticles(id int64) []model.Artitle {
 		} else if b != nil && id == -1 {
 			cursor := b.Cursor()
 			for k, v := cursor.First(); k != nil; k, v = cursor.Next() {
-				atc := model.Artitle{}
+				atc := model.Article{}
 				err := json.Unmarshal(v, &atc)
 				if err != nil {
 					log.Fatal(err)
@@ -122,4 +147,37 @@ func GetArticles(id int64) []model.Artitle {
 	}
 
 	return articles
+}
+
+
+func GetUser(username string) model.User{
+	db, err := bolt.Open(GetDBPATH(), 0600, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer db.Close()
+
+	user := model.User{
+		Username:"",
+		Password:"",
+	}
+
+	err = db.View(func(tx *bolt.Tx) error {
+		b := tx.Bucket([]byte("user"))
+		if b != nil {
+			data := b.Get([]byte(username))
+			if data != nil {
+				err := json.Unmarshal(data, &user)
+				if err != nil {
+					log.Fatal(err)
+				}
+			}
+		}
+		return nil
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	return user
 }

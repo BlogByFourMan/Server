@@ -17,7 +17,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/BlogByFourMan/Server/dal/db"
+	"../dal/db"
 )
 
 func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
