@@ -26,26 +26,44 @@ func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
 
 	s := strings.Split(r.URL.Path, "/")
-	articleId, err := strconv.ParseInt((s[len(s)-2]), 10, 64)
-	fmt.Println(articleId)
+	articleID, err := strconv.ParseInt((s[len(s)-2]), 10, 64)
+	fmt.Println(articleID)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	articles := db.GetArticles(articleId)
-	comments := articles[0].Comments
-	buf, _ := json.Marshal(comments)
-	w.Write(buf)
-
+	articles := db.GetArticles(articleID)
+	if len(articles) != 0 {
+		comments := articles[0].Comments
+		buf, _ := json.Marshal(comments)
+		w.Write(buf)
+	}
 }
 
 func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
+
+	s := strings.Split(r.URL.Path, "/")
+	articleID, err := strconv.ParseInt((s[len(s)-1]), 10, 64)
+	fmt.Println(articleID)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	articles := db.GetArticles(articleID)
+	if len(articles) != 0 {
+		buf, _ := json.Marshal(articles[0])
+		w.Write(buf)
+	}
 }
 
 func ArticlesGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("articles"))
+
+	articles := db.GetArticles(-1)
+
+	buf, _ := json.Marshal(articles)
+	w.Write(buf)
 }
