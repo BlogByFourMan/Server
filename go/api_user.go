@@ -10,22 +10,24 @@
 package swagger
 
 import (
-	"net/http"
-	"log"
-	"../dal/model"
-	"../dal/db"
 	"encoding/json"
+	"fmt"
+	"log"
+	"net/http"
+
+	"github.com/BlogByFourMan/Server/dal/db"
+	"github.com/BlogByFourMan/Server/dal/model"
 )
 
-type myResponse struct {
-	okMessage string
-	errorMessage string
+type MyResponse struct {
+	OkMessage    string `json:"ok,omitempty"`
+	ErrorMessage string `json:"error,,omitempty"`
 }
 
-func Response(response myResponse, w http.ResponseWriter, code int){
-	jsonData, jErr := json.Marshal(response)
+func Response(response MyResponse, w http.ResponseWriter, code int) {
+	jsonData, jErr := json.Marshal(&response)
 
-	if jErr != nil{
+	if jErr != nil {
 		log.Fatal(jErr.Error())
 	}
 
@@ -41,36 +43,36 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&comment)
 
-	if err != nil{
-		Response(myResponse{
+	if err != nil {
+		Response(MyResponse{
 			"",
 			err.Error(),
-		},w,http.StatusBadRequest)
+		}, w, http.StatusBadRequest)
 	}
 
 	articles := db.GetArticles(comment.ArticleId)
 
-	if len(articles) == 0{
-		Response(myResponse{
+	if len(articles) == 0 {
+		Response(MyResponse{
 			"",
 			"articles not found",
 		}, w, http.StatusBadRequest)
 	}
 
-	for _, article := range articles{
+	for _, article := range articles {
 		article.Comments = append(article.Comments, comment)
 	}
 
 	err = db.PutArticles(articles)
 
-	if err != nil{
-		Response(myResponse{
+	if err != nil {
+		Response(MyResponse{
 			"",
 			err.Error(),
-		},w,http.StatusBadRequest)
+		}, w, http.StatusBadRequest)
 	}
 
-	Response(myResponse{
+	Response(MyResponse{
 		"comment add success",
 		"",
 	}, w, http.StatusAccepted)
@@ -84,8 +86,8 @@ func UserLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	err := json.NewDecoder(r.Body).Decode(&user)
 
-	if err != nil{
-		Response(myResponse{
+	if err != nil {
+		Response(MyResponse{
 			"",
 			"parameter error",
 		}, w, http.StatusBadRequest)
@@ -93,15 +95,15 @@ func UserLoginPost(w http.ResponseWriter, r *http.Request) {
 
 	check := db.GetUser(user.Username)
 
-	if check.Username != user.Username || check.Password != user.Password{
-		Response(myResponse{
+	if check.Username != user.Username || check.Password != user.Password {
+		Response(MyResponse{
 			"",
 			"username or password error",
 		}, w, http.StatusBadRequest)
 		return
 	}
 
-	Response(myResponse{
+	Response(MyResponse{
 		"log in success",
 		"",
 	}, w, http.StatusAccepted)
@@ -114,9 +116,11 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 	var user model.User
 
 	err := json.NewDecoder(r.Body).Decode(&user)
-
-	if err != nil{
-		Response(myResponse{
+	r.ParseForm()
+	value := r.Form
+	fmt.Println(value)
+	if err != nil {
+		Response(MyResponse{
 			"",
 			"parameter error",
 		}, w, http.StatusBadRequest)
@@ -124,8 +128,8 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 
 	check := db.GetUser(user.Username)
 
-	if check.Username != ""{
-		Response(myResponse{
+	if check.Username != "" {
+		Response(MyResponse{
 			"",
 			"username existed",
 		}, w, http.StatusBadRequest)
@@ -134,14 +138,14 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 
 	err = db.PutUsers([]model.User{user})
 
-	if err != nil{
-		Response(myResponse{
+	if err != nil {
+		Response(MyResponse{
 			"",
 			err.Error(),
 		}, w, http.StatusBadRequest)
 	}
 
-	Response(myResponse{
+	Response(MyResponse{
 		"register success",
 		"",
 	}, w, http.StatusAccepted)
