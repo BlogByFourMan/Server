@@ -1,220 +1,196 @@
----
-swagger: "2.0"
+swagger: '2.0'
 info:
-  description: "Simple Blog"
-  version: "1.0.0"
-  title: "Swagger Blog"
+  description: Simple Blog
+  version: 1.0.0
+  title: Swagger Blog
 tags:
-- name: "article"
-  description: "Everything about Articles"
-- name: "user"
-  description: "Operations about user"
+  - name: article
+    description: Everything about Articles
+  - name: user
+    description: Operations about user
 schemes:
-- "https"
-- "http"
+  - https
+  - http
 paths:
   /articles:
     get:
       tags:
-      - "article"
-      summary: "Get the list of articles on the corresponding page"
-      description: ""
+        - article
+      summary: Get the list of articles on the corresponding page
+      description: ''
       parameters:
-      - name: "page"
-        in: "query"
-        description: "the corresponding page"
-        required: true
-        type: "string"
-        x-exportParamName: "Page"
+        - name: page
+          in: query
+          description: the corresponding page
+          required: true
+          type: string
+          x-exportParamName: Page
       responses:
-        "200":
-          description: "OK"
+        '200':
+          description: OK
           schema:
-            $ref: "#/definitions/ArtitleList"
-  /article/{id}:
+            $ref: '#/definitions/ArtitleList'
+  '/article/{id}':
     get:
       tags:
-      - "article"
-      summary: "Get the article by id"
-      description: ""
+        - article
+      summary: Get the article by id
+      description: ''
       parameters:
-      - name: "id"
-        in: "path"
-        required: true
-        type: "integer"
-        x-exportParamName: "Id"
+        - name: id
+          in: path
+          required: true
+          type: integer
+          x-exportParamName: Id
       responses:
-        "200":
-          description: "OK"
+        '200':
+          description: OK
           schema:
-            $ref: "#/definitions/Artitle"
-  /article/{id}/comments:
+            $ref: '#/definitions/Artitle'
+  '/article/{id}/comments':
     get:
       tags:
-      - "article"
-      summary: "Get the list of comments on the article"
-      description: ""
+        - article
+      summary: Get the list of comments on the article
+      description: ''
       parameters:
-      - name: "id"
-        in: "path"
-        required: true
-        type: "integer"
-        x-exportParamName: "Id"
+        - name: id
+          in: path
+          required: true
+          type: integer
+          x-exportParamName: Id
       responses:
-        "200":
-          description: "OK"
+        '200':
+          description: OK
           schema:
-            $ref: "#/definitions/CommentList"
-  /article/{id}/comment:
+            $ref: '#/definitions/CommentList'
+  '/article/{id}/comment':
     post:
       tags:
-      - "user"
-      summary: "Post a comment by a logined user"
-      description: ""
+        - user
+      summary: Post a comment by a logined user
+      description: ''
       parameters:
-      - name: "id"
-        in: "path"
-        required: true
-        type: "integer"
-        format: "int64"
-        x-exportParamName: "Id"
-      - in: "body"
-        name: "body"
-        required: true
-        schema:
-          $ref: "#/definitions/body"
-        x-exportParamName: "Body"
-      responses:
-        "200":
-          description: "OK"
+        - name: id
+          in: path
+          required: true
+          type: integer
+          format: int64
+          x-exportParamName: Id
+        - in: body
+          name: body
+          required: true
           schema:
-            $ref: "#/definitions/CommentList"
+            $ref: '#/definitions/Comment'
+          x-exportParamName: Body
+      responses:
+        '200':
+          description: OK
   /user/register:
     post:
       tags:
-      - "user"
-      summary: "Register a user"
-      description: ""
+        - user
+      summary: Register a user
+      description: ''
       parameters:
-      - in: "body"
-        name: "body"
-        required: true
-        schema:
-          $ref: "#/definitions/body_1"
-        x-exportParamName: "Body"
+        - in: body
+          name: body
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+          x-exportParamName: Body
       responses:
-        "200":
-          description: "OK"
+        '200':
+          description: OK
   /user/login:
     post:
       tags:
-      - "user"
-      summary: "Register a user"
-      description: ""
+        - user
+      summary: Register a user
+      description: ''
       parameters:
-      - in: "body"
-        name: "body"
-        required: true
-        schema:
-          $ref: "#/definitions/body_2"
-        x-exportParamName: "Body"
-      responses:
-        "200":
-          description: "OK"
+        - in: body
+          name: body
+          required: true
           schema:
-            $ref: "#/definitions/inline_response_200"
+            $ref: '#/definitions/User'
+          x-exportParamName: Body
+      responses:
+        '200':
+          description: OK
 definitions:
   Artitle:
-    type: "object"
+    type: object
     properties:
       id:
-        type: "integer"
-        format: "int64"
+        type: integer
+        format: int64
       title:
-        type: "string"
+        type: string
+      username:
+        type: string
       tags:
-        type: "array"
+        type: array
         xml:
-          name: "tag"
+          name: tag
           wrapped: true
         items:
-          $ref: "#/definitions/Tag"
+          $ref: '#/definitions/Tag'
       date:
-        type: "string"
-        format: "date"
-      cotent:
-        type: "string"
+        type: string
+        format: date
+      content:
+        type: string
     example:
-      date: "2000-01-23"
-      cotent: "cotent"
+      date: '2000-01-23'
+      content: content
       id: 0
-      title: "title"
+      title: title
+      username: "myUser"
       tags:
-      - name: "name"
-        id: 6
-      - name: "name"
-        id: 6
+        - name: name
+          id: 6
+        - name: name
+          id: 6
   ArtitleList:
-    type: "array"
+    type: array
     items:
-      $ref: "#/definitions/Artitle"
+      $ref: '#/definitions/Artitle'
   Comment:
-    type: "object"
+    type: object
     properties:
       user:
-        type: "string"
+        type: string
       artitle_id:
-        type: "integer"
-        format: "int64"
+        type: integer
+        format: int64
       date:
-        type: "string"
-        format: "date"
+        type: string
+        format: date
       cotent:
-        type: "string"
+        type: string
   CommentList:
-    type: "array"
+    type: array
     items:
-      $ref: "#/definitions/Comment"
+      $ref: '#/definitions/Comment'
   Tag:
-    type: "object"
+    type: object
     properties:
       id:
-        type: "integer"
-        format: "int64"
+        type: integer
+        format: int64
       name:
-        type: "string"
+        type: string
     xml:
-      name: "Tag"
+      name: Tag
     example:
-      name: "name"
+      name: name
       id: 6
-  body:
-    type: "object"
+  User:
+    type: object
     properties:
       username:
-        type: "string"
-      content:
-        type: "string"
-  body_1:
-    type: "object"
-    properties:
-      username:
-        type: "string"
+        type: string
       password:
-        type: "string"
-        format: "password"
-  body_2:
-    type: "object"
-    properties:
-      username:
-        type: "string"
-      password:
-        type: "string"
-        format: "password"
-  inline_response_200:
-    type: "object"
-    properties:
-      token:
-        type: "string"
-    example:
-      token: "token"
+        type: string
+        format: password
