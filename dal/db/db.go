@@ -7,16 +7,17 @@ import (
 	"os"
 	"path"
 
+	"runtime"
+
 	"github.com/BlogByFourMan/Server/dal/model"
 	"github.com/boltdb/bolt"
-	"runtime"
 )
 
 func GetDBPATH() string {
-	ostype:=runtime.GOOS
-	if ostype == "windows"{
+	ostype := runtime.GOOS
+	if ostype == "windows" {
 		pt, _ := os.Getwd()
-		return pt+"\\dal\\db\\Blog.db"
+		return pt + "\\dal\\db\\Blog.db"
 	}
 	return path.Join(os.Getenv("GOPATH"), "src", "github.com", "BlogByFourMan", "Server", "dal", "db", "Blog.db")
 }
@@ -135,7 +136,8 @@ func GetArticles(id int64, page int64) []model.Article {
 
 		} else if b != nil && id == -1 {
 			cursor := b.Cursor()
-			for k, v := cursor.First(); k != nil && page > 0; k, v = cursor.Next() {
+			k, v := cursor.First()
+			for k, v = cursor.Next(); k != nil && page > 0; k, v = cursor.Next() {
 				atc := model.Article{}
 				err := json.Unmarshal(v, &atc)
 				if err != nil {
