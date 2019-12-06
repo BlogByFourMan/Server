@@ -18,7 +18,6 @@ import (
 	"github.com/BlogByFourMan/Server/dal/model"
 )
 
-
 func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 	db.Init()
 
@@ -33,7 +32,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 		}, w, http.StatusBadRequest)
 	}
 
-	articles := db.GetArticles(comment.ArticleId)
+	articles := db.GetArticles(comment.ArticleId, 0)
 
 	if len(articles) == 0 {
 		Response(MyResponse{
