@@ -102,7 +102,7 @@ func PutUsers(users []model.User) error {
 // GetArticles 根据article_id 获取article
 // 如果id == -1 表示获取所有articles
 // return []Article. if not found, len(articles)==0
-func GetArticles(id int64) []model.Article {
+func GetArticles(id int64, page int64) []model.Article {
 	articles := make([]model.Article, 0)
 	db, err := bolt.Open(GetDBPATH(), 0600, nil)
 	if err != nil {
@@ -129,13 +129,14 @@ func GetArticles(id int64) []model.Article {
 
 		} else if b != nil && id == -1 {
 			cursor := b.Cursor()
-			for k, v := cursor.First(); k != nil; k, v = cursor.Next() {
+			for k, v := cursor.First(); k != nil && page > 0; k, v = cursor.Next() {
 				atc := model.Article{}
 				err := json.Unmarshal(v, &atc)
 				if err != nil {
 					log.Fatal(err)
 				}
 				articles = append(articles, atc)
+				page--
 			}
 		}
 		return nil
