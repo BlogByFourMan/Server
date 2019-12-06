@@ -10,7 +10,6 @@
 package swagger
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
@@ -21,8 +20,6 @@ import (
 )
 
 func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
 	r.ParseForm()
 
 	s := strings.Split(r.URL.Path, "/")
@@ -34,15 +31,14 @@ func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
 
 	articles := db.GetArticles(articleID)
 	if len(articles) != 0 {
-		comments := articles[0].Comments
-		buf, _ := json.Marshal(comments)
-		w.Write(buf)
+		Response(MyResponse{
+			articles[0].Comments,
+			nil,
+		}, w, http.StatusOK)
 	}
 }
 
 func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
 
 	s := strings.Split(r.URL.Path, "/")
 	articleID, err := strconv.ParseInt((s[len(s)-1]), 10, 64)
@@ -53,17 +49,18 @@ func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
 
 	articles := db.GetArticles(articleID)
 	if len(articles) != 0 {
-		buf, _ := json.Marshal(articles[0])
-		w.Write(buf)
+		Response(MyResponse{
+			articles[0],
+			nil,
+		}, w, http.StatusOK)
 	}
 }
 
 func ArticlesGet(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
-
 	articles := db.GetArticles(-1)
 
-	buf, _ := json.Marshal(articles)
-	w.Write(buf)
+	Response(MyResponse{
+		articles,
+		nil,
+	}, w, http.StatusOK)
 }
