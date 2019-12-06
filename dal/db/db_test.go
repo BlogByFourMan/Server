@@ -63,7 +63,7 @@ func TestPutGetArticles(t *testing.T) {
 		t.Error(err)
 	}
 
-	dbArticles := db.GetArticles(1)
+	dbArticles := db.GetArticles(1, 0)
 	if len(dbArticles) != 1 {
 		t.Error("len(dbArticles) != 1")
 	}
@@ -71,7 +71,7 @@ func TestPutGetArticles(t *testing.T) {
 		t.Error("dbArticles[0].Id != 1")
 	}
 
-	dbArticles = db.GetArticles(-1)
+	dbArticles = db.GetArticles(-1, 2)
 	if len(dbArticles) != 2 {
 		t.Error("len(dbArticles) != 2")
 	}
@@ -85,7 +85,7 @@ func TestPutGetArticles(t *testing.T) {
 }
 
 func TestGetNULLArticle(t *testing.T) {
-	articles := db.GetArticles(12)
+	articles := db.GetArticles(12, 0)
 	if len(articles) != 0 {
 		t.Error("len(articles) != 0")
 	}

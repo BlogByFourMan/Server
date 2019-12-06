@@ -57,14 +57,14 @@ func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
 }
 
 func ArticlesGet(w http.ResponseWriter, r *http.Request) {
+
 	r.ParseForm()
 	pagestr := r.FormValue("page")
-	page, err := strconv.ParseInt(pagestr, 10, 64)
-	if err != nil {
-		log.Fatal(err)
+	page := int64(5)
+	if pagestr != "" {
+		page, _ = strconv.ParseInt(pagestr, 10, 64)
 	}
 	articles := db.GetArticles(-1, page)
-
 	Response(MyResponse{
 		articles,
 		nil,
