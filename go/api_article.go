@@ -10,12 +10,33 @@
 package swagger
 
 import (
+	"encoding/json"
+	"fmt"
+	"log"
 	"net/http"
+	"strconv"
+	"strings"
+
+	"github.com/BlogByFourMan/Server/dal/db"
 )
 
 func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
+	r.ParseForm()
+
+	s := strings.Split(r.URL.Path, "/")
+	articleId, err := strconv.ParseInt((s[len(s)-2]), 10, 64)
+	fmt.Println(articleId)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	articles := db.GetArticles(articleId)
+	comments := articles[0].Comments
+	buf, _ := json.Marshal(comments)
+	w.Write(buf)
+
 }
 
 func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
@@ -26,4 +47,5 @@ func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
 func ArticlesGet(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("articles"))
 }

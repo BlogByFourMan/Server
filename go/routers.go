@@ -11,7 +11,10 @@ package swagger
 
 import (
 	"fmt"
+	"io/ioutil"
+	"log"
 	"net/http"
+	"os"
 	"strings"
 
 	"github.com/gorilla/mux"
@@ -44,7 +47,12 @@ func NewRouter() *mux.Router {
 }
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World!")
+	f, err := os.Open("go/index.html")
+	if err != nil {
+		log.Fatal(err)
+	}
+	index, _ := ioutil.ReadAll(f)
+	fmt.Fprintf(w, string(index))
 }
 
 var routes = Routes{
