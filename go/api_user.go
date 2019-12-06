@@ -57,12 +57,23 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 		}, w, http.StatusBadRequest)
 	}
 
-	for article, _ := range articles{
-		
+	for _, article := range articles{
+		article.Comments = append(article.Comments, comment)
 	}
 
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
+	err = db.PutArticles(articles)
+
+	if err != nil{
+		Response(myResponse{
+			"",
+			err.Error(),
+		},w,http.StatusBadRequest)
+	}
+
+	Response(myResponse{
+		"comment add success",
+		"",
+	}, w, http.StatusAccepted)
 }
 
 func UserLoginPost(w http.ResponseWriter, r *http.Request) {
