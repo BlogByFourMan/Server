@@ -15,6 +15,10 @@ import (
 
 	"github.com/BlogByFourMan/Server/dal/db"
 	"github.com/BlogByFourMan/Server/dal/model"
+	"strings"
+	"strconv"
+	"time"
+	"fmt"
 )
 
 func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
@@ -31,6 +35,18 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 		}, w, http.StatusBadRequest)
 		return
 	}
+
+	articleId := strings.Split(r.URL.Path, "/")[2]
+	comment.ArticleId, err = strconv.ParseInt(articleId, 10, 64)
+	if err != nil {
+		Response(MyResponse{
+			nil,
+			err.Error(),
+		}, w, http.StatusBadRequest)
+		return
+	}
+
+	comment.Date = fmt.Sprintf("%d-%d-%d", time.Now().Year(), time.Now().Month(),time.Now().Day())
 
 	articles := db.GetArticles(comment.ArticleId, 0)
 
@@ -57,7 +73,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 	}
 
 	Response(MyResponse{
-		"comment add success",
+		comment,
 		nil,
 	}, w, http.StatusOK)
 }

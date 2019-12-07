@@ -4,7 +4,7 @@
     <list default="true" id="1ecb6281-f10a-4d59-a390-bf69d0f7f025" name="默认" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dal/db/Blog.db" beforeDir="false" afterPath="$PROJECT_DIR$/dal/db/Blog.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go/api_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/api_user.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="api_user.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="api_user.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/go/api_user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-190">
-              <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            <state relative-caret-position="164">
+              <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
               <folding>
                 <element signature="e#170#297#0" expanded="true" />
               </folding>
@@ -27,26 +27,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_article.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/go/api_article.go">
+      <file leaf-file-name="server.go" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Go/src/net/http/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="69">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-              <folding>
-                <element signature="e#170#288#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="157">
+              <caret line="2007" selection-start-line="2007" selection-end-line="2007" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/go/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-100">
-                <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="api_article.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/go/api_article.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -81,8 +75,8 @@
       <file leaf-file-name="swagger.yaml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/api/swagger.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="174" column="35" lean-forward="true" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
+            <state relative-caret-position="3306">
+              <caret line="174" column="35" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -90,7 +84,7 @@
       <file leaf-file-name="model_comment.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dal/model/model_comment.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="266">
               <caret line="14" column="37" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="37" />
             </state>
           </provider>
@@ -99,17 +93,17 @@
       <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+            <state relative-caret-position="342">
+              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="response.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="response.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/go/response.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+            <state relative-caret-position="304">
+              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
                 <element signature="e#17#63#0" expanded="true" />
               </folding>
@@ -144,8 +138,8 @@
         <option value="$PROJECT_DIR$/dal/model/model_comment.go" />
         <option value="$PROJECT_DIR$/go/api_article.go" />
         <option value="$PROJECT_DIR$/dal/db/db.go" />
-        <option value="$PROJECT_DIR$/go/api_user.go" />
         <option value="$PROJECT_DIR$/go/response.go" />
+        <option value="$PROJECT_DIR$/go/api_user.go" />
       </list>
     </option>
   </component>
@@ -163,16 +157,16 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="405" />
-    <option name="y" value="111" />
+    <option name="y" value="110" />
     <option name="width" value="1265" />
-    <option name="height" value="1104" />
+    <option name="height" value="1105" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,8 +205,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -225,7 +219,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -366,7 +360,8 @@
       <workItem from="1575553666614" duration="6711000" />
       <workItem from="1575621392946" duration="32000" />
       <workItem from="1575621434306" duration="3077000" />
-      <workItem from="1575635122364" duration="7544000" />
+      <workItem from="1575635122364" duration="7893000" />
+      <workItem from="1575685616548" duration="1951000" />
     </task>
     <task id="LOCAL-00001" summary="修改了swagger">
       <created>1575641514325</created>
@@ -375,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575641514325</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="跨域问题">
+      <created>1575643065648</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1575643065648</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -396,7 +398,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17364000" />
+    <option name="totallyTimeSpent" value="19664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -413,15 +415,15 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="调试" order="7" weight="0.328877" />
+      <window_info anchor="bottom" id="调试" order="7" visible="true" weight="0.328877" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Flutter Performance" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.328877" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3328877" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3328877" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.328877" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18096514" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18297587" />
       <window_info id="设计器" order="2" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -444,11 +446,12 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改了swagger" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了swagger" />
+    <MESSAGE value="跨域问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="跨域问题" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="12" />
+      <option name="time" value="15" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -471,13 +474,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dal/model/model_tag.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dal/model/model_user.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -565,9 +561,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="741">
           <caret line="48" column="32" selection-start-line="48" selection-start-column="32" selection-end-line="48" selection-end-column="32" />
-          <folding>
-            <element signature="e#170#288#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -672,10 +665,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dal/model/model_comment.go">
+    <entry file="file://$PROJECT_DIR$/dal/model/model_artitle.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="37" />
+        <state relative-caret-position="266">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/api/swagger.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3306">
+          <caret line="174" column="35" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -686,13 +686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dal/model/model_artitle.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dal/model/model_user.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -700,56 +693,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/api/swagger.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="174" column="35" lean-forward="true" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go/api_article.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="69">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-          <folding>
-            <element signature="e#170#288#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/go/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-100">
-            <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <first_editor relative-caret-position="361">
+            <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/go/api_user.go">
+    <entry file="file://$PROJECT_DIR$/dal/model/model_comment.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-190">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-          <folding>
-            <element signature="e#170#297#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="266">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="27" selection-end-line="14" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://C:/Go/src/net/http/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state relative-caret-position="157">
+          <caret line="2007" selection-start-line="2007" selection-end-line="2007" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/go/response.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+        <state relative-caret-position="304">
+          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
           <folding>
             <element signature="e#17#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go/api_article.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go/api_user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+          <folding>
+            <element signature="e#170#297#0" expanded="true" />
           </folding>
         </state>
       </provider>
