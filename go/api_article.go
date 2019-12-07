@@ -25,7 +25,7 @@ func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
 	articleID, err := strconv.ParseInt((s[len(s)-2]), 10, 64)
 	fmt.Println(articleID)
 	if err != nil {
-		Response(MyResponse{nil, "Not Found"}, w, http.StatusBadRequest)
+		Response(MyResponse{nil, err.Error()}, w, http.StatusBadRequest)
 		return
 	}
 

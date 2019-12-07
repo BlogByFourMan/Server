@@ -13,16 +13,25 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"fmt"
+	"strconv"
+	"strings"
+	"time"
+
 	"github.com/BlogByFourMan/Server/dal/db"
 	"github.com/BlogByFourMan/Server/dal/model"
-	"strings"
-	"strconv"
-	"time"
-	"fmt"
 )
 
 func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 	db.Init()
+
+	if ValidateToken(w, r) == false {
+		Response(MyResponse{
+			nil,
+			"authentication fail",
+		}, w, http.StatusBadRequest)
+		return
+	}
 
 	var comment model.Comment
 
@@ -46,7 +55,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	comment.Date = fmt.Sprintf("%d-%d-%d", time.Now().Year(), time.Now().Month(),time.Now().Day())
+	comment.Date = fmt.Sprintf("%d-%d-%d", time.Now().Year(), time.Now().Month(), time.Now().Day())
 
 	articles := db.GetArticles(comment.ArticleId, 0)
 
@@ -58,7 +67,7 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	for i :=0 ;i<len(articles);i++ {
+	for i := 0; i < len(articles); i++ {
 		articles[i].Comments = append(articles[i].Comments, comment)
 	}
 
@@ -104,8 +113,23 @@ func UserLoginPost(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// token := jwt.New(jwt.SigningMethodHS256)
+	// claims := make(jwt.MapClaims)
+	// claims["exp"] = time.Now().Add(time.Hour * time.Duration(1)).Unix()
+	// claims["iat"] = time.Now().Unix()
+	// claims["name"] = user.Username
+	// token.Claims = claims
+	// tokenString, err := token.SignedString([]byte(SecretKey))
+
+	tokenString, err := SignToken(user.Username)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintln(w, "Error while signing the token")
+		tokenString = "signing token error"
+	}
+
 	Response(MyResponse{
-		"log in success",
+		tokenString,
 		nil,
 	}, w, http.StatusOK)
 }
