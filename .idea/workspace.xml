@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1ecb6281-f10a-4d59-a390-bf69d0f7f025" name="默认" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dal/db/Blog.db" beforeDir="false" afterPath="$PROJECT_DIR$/dal/db/Blog.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go/api_user.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/api_user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/routers.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,13 +15,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="api_user.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="api_user.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/go/api_user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="164">
-              <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+            <state relative-caret-position="475">
+              <caret line="25" column="64" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="64" />
               <folding>
-                <element signature="e#170#297#0" expanded="true" />
+                <element signature="e#170#366#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -30,26 +30,31 @@
       <file leaf-file-name="server.go" pinned="false" current-in-tab="false">
         <entry file="file://C:/Go/src/net/http/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
+            <state relative-caret-position="37392">
               <caret line="2007" selection-start-line="2007" selection-end-line="2007" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="api_article.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/go/api_article.go">
+      <file leaf-file-name="routers.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/go/routers.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="239">
+              <caret line="97" column="12" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model_artitle.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dal/model/model_artitle.go">
+      <file leaf-file-name="jwt.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/go/jwt.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="api_article.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/go/api_article.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="152">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -72,15 +77,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="swagger.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/api/swagger.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3306">
-              <caret line="174" column="35" selection-start-line="174" selection-start-column="35" selection-end-line="174" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="model_comment.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dal/model/model_comment.go">
           <provider selected="true" editor-type-id="text-editor">
@@ -94,16 +90,16 @@
         <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="response.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="response.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/go/response.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+            <state relative-caret-position="399">
+              <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
               <folding>
                 <element signature="e#17#63#0" expanded="true" />
               </folding>
@@ -138,8 +134,10 @@
         <option value="$PROJECT_DIR$/dal/model/model_comment.go" />
         <option value="$PROJECT_DIR$/go/api_article.go" />
         <option value="$PROJECT_DIR$/dal/db/db.go" />
-        <option value="$PROJECT_DIR$/go/response.go" />
         <option value="$PROJECT_DIR$/go/api_user.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/go/routers.go" />
+        <option value="$PROJECT_DIR$/go/response.go" />
       </list>
     </option>
   </component>
@@ -166,7 +164,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -205,8 +205,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,7 +359,10 @@
       <workItem from="1575621392946" duration="32000" />
       <workItem from="1575621434306" duration="3077000" />
       <workItem from="1575635122364" duration="7893000" />
-      <workItem from="1575685616548" duration="1951000" />
+      <workItem from="1575685616548" duration="2666000" />
+      <workItem from="1575701478235" duration="596000" />
+      <workItem from="1575702359554" duration="1400000" />
+      <workItem from="1575712042190" duration="1083000" />
     </task>
     <task id="LOCAL-00001" summary="修改了swagger">
       <created>1575641514325</created>
@@ -377,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575643065648</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="跨域问题">
+      <created>1575690443614</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1575690443615</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -398,7 +406,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19664000" />
+    <option name="totallyTimeSpent" value="23458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -415,7 +423,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="调试" order="7" visible="true" weight="0.328877" />
+      <window_info anchor="bottom" id="调试" order="7" weight="0.328877" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -423,7 +431,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.328877" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3328877" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.328877" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18297587" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.123324394" />
       <window_info id="设计器" order="2" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -451,7 +459,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="18" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -474,13 +482,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dal/model/model_user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="45" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dal/model/model_comment.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -506,9 +507,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
           <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
-          <folding>
-            <element signature="e#170#297#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -651,13 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/go/routers.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dal/db/db.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -710,43 +701,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Go/src/net/http/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="2007" selection-start-line="2007" selection-end-line="2007" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/go/response.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#63#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/go/api_article.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        <state relative-caret-position="152">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="30" column="18" selection-start-line="30" selection-start-column="18" selection-end-line="30" selection-end-column="18" />
+          <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/go/jwt.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/go/api_user.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="38" column="49" selection-start-line="38" selection-start-column="49" selection-end-line="38" selection-end-column="49" />
+        <state relative-caret-position="475">
+          <caret line="25" column="64" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="64" />
           <folding>
-            <element signature="e#170#297#0" expanded="true" />
+            <element signature="e#170#366#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/net/http/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37392">
+          <caret line="2007" selection-start-line="2007" selection-end-line="2007" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go/routers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="97" column="12" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/go/response.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+          <folding>
+            <element signature="e#17#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -754,8 +755,33 @@
   </component>
   <component name="masterDetails">
     <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Python 3.7 interpreter library</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -768,6 +794,18 @@
       <state key="JdkListConfigurable.UI">
         <settings>
           <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Server</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

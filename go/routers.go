@@ -92,6 +92,13 @@ var routes = Routes{
 	},
 
 	Route{
+		"Options",
+		strings.ToUpper("options"),
+		"/article/{id}/comment",
+		Options,
+	},
+
+	Route{
 		"UserLoginPost",
 		strings.ToUpper("Post"),
 		"/user/login",
@@ -105,3 +112,4 @@ var routes = Routes{
 		UserRegisterPost,
 	},
 }
+
