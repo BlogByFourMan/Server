@@ -35,8 +35,10 @@ func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
 			articles[0].Comments,
 			nil,
 		}, w, http.StatusOK)
+	} else if len(articles) == 0 {
+		Response(MyResponse{nil, "Article Not Found"}, w, http.StatusOK)
 	} else {
-		Response(MyResponse{nil, "Not Found"}, w, http.StatusOK)
+		Response(MyResponse{nil, nil}, w, http.StatusOK)
 	}
 }
 
