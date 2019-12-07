@@ -11,7 +11,6 @@ package swagger
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"strconv"
 	"strings"
@@ -26,15 +25,18 @@ func ArticleIdCommentsGet(w http.ResponseWriter, r *http.Request) {
 	articleID, err := strconv.ParseInt((s[len(s)-2]), 10, 64)
 	fmt.Println(articleID)
 	if err != nil {
-		log.Fatal(err)
+		Response(MyResponse{nil, "Not Found"}, w, http.StatusBadRequest)
+		return
 	}
 
 	articles := db.GetArticles(articleID, 0)
-	if len(articles) != 0 {
+	if len(articles) != 0 && len(articles[0].Comments) != 0 {
 		Response(MyResponse{
 			articles[0].Comments,
 			nil,
 		}, w, http.StatusOK)
+	} else {
+		Response(MyResponse{nil, "Not Found"}, w, http.StatusOK)
 	}
 }
 
@@ -44,7 +46,9 @@ func ArticleIdGet(w http.ResponseWriter, r *http.Request) {
 	articleID, err := strconv.ParseInt((s[len(s)-1]), 10, 64)
 	fmt.Println(articleID)
 	if err != nil {
-		log.Fatal(err)
+		// log.Fatal(err)
+		Response(MyResponse{nil, "Not Found"}, w, http.StatusOK)
+		return
 	}
 
 	articles := db.GetArticles(articleID, 0)
