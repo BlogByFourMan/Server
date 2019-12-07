@@ -173,9 +173,14 @@ func UserRegisterPost(w http.ResponseWriter, r *http.Request) {
 		}, w, http.StatusBadRequest)
 		return
 	}
-
+	tokenString, err := SignToken(user.Username)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintln(w, "Error while signing the token")
+		tokenString = "signing token error"
+	}
 	Response(MyResponse{
-		"register success",
+		tokenString,
 		nil,
 	}, w, http.StatusOK)
 
