@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1ecb6281-f10a-4d59-a390-bf69d0f7f025" name="默认" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/go/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/response.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go/routers.go" beforeDir="false" afterPath="$PROJECT_DIR$/go/routers.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/go/routers.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="239">
-              <caret line="97" column="12" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+              <caret line="97" column="16" lean-forward="true" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -98,8 +96,8 @@
       <file leaf-file-name="response.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/go/response.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+            <state relative-caret-position="206">
+              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
               <folding>
                 <element signature="e#17#63#0" expanded="true" />
               </folding>
@@ -362,7 +360,7 @@
       <workItem from="1575685616548" duration="2666000" />
       <workItem from="1575701478235" duration="596000" />
       <workItem from="1575702359554" duration="1400000" />
-      <workItem from="1575712042190" duration="1083000" />
+      <workItem from="1575712042190" duration="1633000" />
     </task>
     <task id="LOCAL-00001" summary="修改了swagger">
       <created>1575641514325</created>
@@ -385,7 +383,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575690443615</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Options跨域">
+      <created>1575713248118</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575713248118</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -406,7 +411,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23458000" />
+    <option name="totallyTimeSpent" value="24008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -424,6 +429,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="调试" order="7" weight="0.328877" />
+      <window_info anchor="bottom" id="Messages" visible="true" weight="0.328877" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -455,7 +461,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改了swagger" />
     <MESSAGE value="跨域问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="跨域问题" />
+    <MESSAGE value="Options跨域" />
+    <option name="LAST_COMMIT_MESSAGE" value="Options跨域" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -738,14 +745,14 @@
     <entry file="file://$PROJECT_DIR$/go/routers.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
-          <caret line="97" column="12" lean-forward="true" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
+          <caret line="97" column="16" lean-forward="true" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/go/response.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="53" lean-forward="true" selection-start-line="21" selection-start-column="53" selection-end-line="21" selection-end-column="53" />
+        <state relative-caret-position="206">
+          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
           <folding>
             <element signature="e#17#63#0" expanded="true" />
           </folding>

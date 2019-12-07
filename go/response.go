@@ -14,7 +14,7 @@ type MyResponse struct {
 func Options(w http.ResponseWriter, r *http.Request){
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.Header().Set("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
-	w.Header().Set("Access-Control-Allow-Headers", "X-Requested-With,Content-Type")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Headers, Authorization, X-Requested-With")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.WriteHeader(http.StatusOK)
 }
@@ -28,7 +28,7 @@ func Response(response interface{}, w http.ResponseWriter, code int) {
 
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.Header().Set("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS")
-	w.Header().Set("Access-Control-Allow-Headers", "X-Requested-With,Content-Type")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Credentials, Access-Control-Allow-Methods, Access-Control-Allow-Headers, Authorization, X-Requested-With")
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Write(jsonData)
 	w.WriteHeader(code)
