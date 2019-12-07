@@ -20,12 +20,13 @@ import (
 
 	"github.com/BlogByFourMan/Server/dal/db"
 	"github.com/BlogByFourMan/Server/dal/model"
+	"github.com/dgrijalva/jwt-go"
 )
 
 func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 	db.Init()
-
-	if ValidateToken(w, r) == false {
+	token, isValid := ValidateToken(w, r)
+	if isValid == false {
 		Response(MyResponse{
 			nil,
 			"authentication fail",
@@ -36,13 +37,17 @@ func ArticleIdCommentPost(w http.ResponseWriter, r *http.Request) {
 	var comment model.Comment
 
 	err := json.NewDecoder(r.Body).Decode(&comment)
-
 	if err != nil {
 		Response(MyResponse{
 			nil,
 			err.Error(),
 		}, w, http.StatusBadRequest)
 		return
+	}
+
+	if v, ok := token.Claims.(jwt.MapClaims); ok {
+		name, _ := v["name"].(string)
+		comment.User = name
 	}
 
 	articleId := strings.Split(r.URL.Path, "/")[2]

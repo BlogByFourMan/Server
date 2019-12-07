@@ -12,7 +12,7 @@ import (
 // SecretKey : secret key for jwt
 const SecretKey = "123qwe"
 
-func ValidateToken(w http.ResponseWriter, r *http.Request) bool {
+func ValidateToken(w http.ResponseWriter, r *http.Request) (*jwt.Token, bool) {
 	token, err := request.ParseFromRequest(r, request.AuthorizationHeaderExtractor,
 		func(token *jwt.Token) (interface{}, error) {
 			return []byte(SecretKey), nil
@@ -21,16 +21,16 @@ func ValidateToken(w http.ResponseWriter, r *http.Request) bool {
 	if err != nil {
 		w.WriteHeader(http.StatusUnauthorized)
 		fmt.Fprint(w, "Unauthorized access to this resource")
-		return false
+		return token, false
 	}
 
 	if !token.Valid {
 		w.WriteHeader(http.StatusUnauthorized)
 		fmt.Fprint(w, "token is invalid")
-		return false
+		return token, false
 	}
 
-	return true
+	return token, true
 }
 
 func SignToken(userName string) (string, error) {
