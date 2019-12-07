@@ -64,7 +64,7 @@ func ArticlesGet(w http.ResponseWriter, r *http.Request) {
 
 	r.ParseForm()
 	pagestr := r.FormValue("page")
-	page := int64(5)
+	page := int64(1)
 	if pagestr != "" {
 		page, _ = strconv.ParseInt(pagestr, 10, 64)
 	}
